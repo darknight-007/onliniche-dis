@@ -11,9 +11,9 @@ DEPTH_THRESH = 2;
 highThresh = 1;
 TOTALTICKS = length(auvdataRaw);
 NO_WINDOWS = 9;
-GULPS_PER_WINDOW =  floor(NO_GULPERS/NO_WINDOWS)
-GULP_WINDOW_SIZE = floor(TOTALTICKS/NO_WINDOWS)
-eWINDOW = floor(GULP_WINDOW_SIZE/(DIVISOR))
+GULPS_PER_WINDOW =  floor(NO_GULPERS/NO_WINDOWS);
+GULP_WINDOW_SIZE = floor(TOTALTICKS/NO_WINDOWS);
+eWINDOW = floor(GULP_WINDOW_SIZE/(DIVISOR));
 
 
 
@@ -25,7 +25,7 @@ xVec  = auvdataRaw(:,10);
 yVec  = auvdataRaw(:,9);
 zVec  = -auvdataRaw(:,8);
 
-chlLim = [0 30]
+chlLim = [0 30];
 load hs2fit;
 
 chlVec = hs2fit.intercept + hs2fit.slope*fl;
@@ -109,7 +109,7 @@ for i=1:length(mSP)
                 gulpIndices = [gulpIndices ; i 0];
                 [i 0]
                 
-                gulpCtr = gulpCtr +1
+                gulpCtr = gulpCtr +1;
                 gulpDetails = [];
                 [0]
             end

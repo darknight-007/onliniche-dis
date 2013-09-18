@@ -90,14 +90,14 @@ for howManyCtr = 1:howMany
         
         
         NUM_METHODS = length(samplingMethods);
-        newportPierModelGPClassificationForSyntheticData(S0,Y0,[],2,1,DEFAULT_NICHE_MODEL_FILENAME)
+        newportPierModelGPClassificationForSyntheticData(S0,Y0,[],2,1,DEFAULT_NICHE_MODEL_FILENAME);
         
         for methodCtr = 1:NUM_METHODS
             S{methodCtr} = S0;
             Y{methodCtr} = Y0;
             Stats{methodCtr}.proportionTargetSuccess = [];
             isHandpicked{methodCtr} = [];
-            copyfile(DEFAULT_NICHE_MODEL_FILENAME,[newFolderName 'nicheModel_' num2str(methodCtr) '_1.mat'])
+            copyfile(DEFAULT_NICHE_MODEL_FILENAME,[newFolderName 'nicheModel_' num2str(methodCtr) '_1.mat']);
         end
         
         
@@ -129,7 +129,7 @@ for howManyCtr = 1:howMany
         
         CAMPAIGN_LENGTH = length(filename)-1-CLIPSIZE;
         for ctr = 2:CAMPAIGN_LENGTH
-            
+            [howMany ctr]
             auvdataRaw = analyzeAUVctdDataForEnvFeatures(filename{ctr});
             
             S_all = [auvdataRaw(:,3) auvdataRaw(:,2)];
@@ -154,7 +154,7 @@ for howManyCtr = 1:howMany
                 score = predictedY;
                 
                 
-                gulpIndices = samplingMethods{methodCtr}(samplingMethodsParam(methodCtr),auvdataRaw, score)
+                gulpIndices = samplingMethods{methodCtr}(samplingMethodsParam(methodCtr),auvdataRaw, score);
                 
                 newS = [auvdataRaw(gulpIndices(:,1),3) auvdataRaw(gulpIndices(:,1),2)];
                 result = resultAll(gulpIndices(:,1));
@@ -168,7 +168,7 @@ for howManyCtr = 1:howMany
                 thisY = Y{methodCtr};
                 thisS = thisS(INITIAL_N+1:end,:);
                 thisY = thisY(INITIAL_N+1:end,:);
-                newportPierModelGPClassificationForSyntheticData(S{methodCtr},Y{methodCtr},[],2,1,NEW_MODEL_FILE)
+                newportPierModelGPClassificationForSyntheticData(S{methodCtr},Y{methodCtr},[],2,1,NEW_MODEL_FILE);
                 
                 X1vec = reshape(X1,numel(X1),1);
                 X2vec = reshape(X2,numel(X1),1);
@@ -261,7 +261,7 @@ for howManyCtr = 1:howMany
                 optRatio(i) = sum(Y{i}(21:end)>0)/sum(Y{2}(21:end)>0);
                 hold on;
             end
-            Yvecs = [Yvecs ; yvec]
+            Yvecs = [Yvecs ; yvec];
             
            
             
