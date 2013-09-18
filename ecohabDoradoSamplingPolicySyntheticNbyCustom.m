@@ -26,6 +26,8 @@ yVec  = auvdataRaw(:,9);
 zVec  = -auvdataRaw(:,8);
 
 chlLim = [0 30]
+load hs2fit;
+load jetplus;
 
 
 
