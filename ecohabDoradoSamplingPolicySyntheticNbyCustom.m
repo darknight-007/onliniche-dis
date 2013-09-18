@@ -28,6 +28,8 @@ zVec  = -auvdataRaw(:,8);
 chlLim = [0 30]
 load hs2fit;
 
+chlVec = hs2fit.intercept + hs2fit.slope*fl;
+
 
 
 mSP = LgridVec;
