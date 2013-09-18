@@ -40,7 +40,7 @@ for howManyCtr = 1:howMany
         methodLineWidth = [1,2,2,2,2,2,3]
         
         timenow = datestr(now,'YYYY-mm-DD_HHMMSS');
-        newFolderName = [rootFolderName timenow  '_' num2str(NUM_HOTSPOTS) '_' num2str(INITIAL_N) '_divisor_' sprintf('%.1f_%d_%d_%d',samplingMethodsParam(3:6)) '_' computer '_' version('-release') '/'];
+        newFolderName = ['logs/' timenow  '_' num2str(NUM_HOTSPOTS) '_' num2str(INITIAL_N) '_divisor_' sprintf('%.1f_%d_%d_%d',samplingMethodsParam(3:6)) '_' computer '_' version('-release') '/'];
         mkdir(newFolderName);
         DEFAULT_NICHE_MODEL_FILENAME = [newFolderName 'nicheModelInitial.mat'];
         axis_ = [ 33                     34                   10                     18];
