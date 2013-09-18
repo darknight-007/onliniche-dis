@@ -1,6 +1,9 @@
-function nicheModelRealFluoroSamplingComparisonsCustomMultiCore(howMany, rootFolderName)
+function nicheModelRealFluoroSamplingComparisonsCustomMultiCore(howMany, rootFolderName, dataFolderName)
 if(isempty(rootFolderName))
     rootFolderName =  '/Users/jdas/Dropbox/Research/MBARI/Documents/dissertalkPitch/';
+end
+if(isempty(dataFolderName))
+    dataFolderName = '/Users/jdas/Research/doradoMatFiles/';
 end
 
 % x1 = 32.6:.02:34; x2 = 12:.02:20;
@@ -63,11 +66,11 @@ for howManyCtr = 1:howMany
         filename = [];
         
         
-        fid = fopen('/Users/jdas/Research/doradoMatFiles/doradoLocoListTrimmed.txt');
+        fid = fopen([dataFolderName    'doradoLocoListTrimmed.txt']);
         ctr = 1;
         while ~feof(fid)
             fname = fgetl(fid);
-            filename{ctr} =  ['/Users/jdas/Research/doradoMatFiles/' fname];
+            filename{ctr} =  [dataFolderName fname];
             ctr = ctr + 1;
         end
         Y0 = [];
