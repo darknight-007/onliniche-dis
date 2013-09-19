@@ -35,16 +35,18 @@ for howManyCtr = 1:howMany
         INITIAL_N = NO_GULPERS*1;
         
         scoringMethod = {@predictionOnly,@predictionOnly,@predictionTimesUncert}
+                samplingMethodsParam = [0, 9,9]
+
         methodName = {'Rnd_Cls','Best_cls ', 'Best_cls_gp_ucb'};
         modelingMethods = {@nicheModelClassification, @nicheModelClassification, @nicheModelClassification}
-        samplingMethods = {@ecohabDoradoSamplingPolicySyntheticRandom,@ecohabDoradoSamplingPolicySyntheticOfflineBest,@ecohabDoradoSamplingPolicySyntheticOfflineBest}
+        samplingMethods = {@ecohabDoradoSamplingPolicySyntheticRandom,@ecohabDoradoSamplingPolicySyntheticNbyCustom ,@ecohabDoradoSamplingPolicySyntheticNbyCustom}
         
-        samplingMethodsParam = [0, 1, exp(1), 4,9,12]
         patterns = {'b', 'c--','r', 'k:', 'm-', 'g-','k--'};
         methodLineWidth = [1,2,2,2,2,2,3]
         
         timenow = datestr(now,'YYYY-mm-DD_HHMMSS');
-        newFolderName = ['logs/' timenow  '_' num2str(NUM_HOTSPOTS) '_' num2str(INITIAL_N) '_divisor_' sprintf('%.1f_%d_%d_%d',samplingMethodsParam(3:6)) '_' computer '_' version('-release') '/'];
+%         sprintf('%.1f_%d_%d_%d',samplingMethodsParam(3:6))
+        newFolderName = ['logs/' timenow  '_' num2str(NUM_HOTSPOTS) '_' num2str(INITIAL_N) '_divisor_' computer '_' version('-release') '/'];
         mkdir(newFolderName);
         axis_ = [ 33                     34                   10                     18];
         
