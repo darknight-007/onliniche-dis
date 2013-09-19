@@ -11,7 +11,7 @@ end
 
 rankVec = [];
 if(strcmp('GLNXA64', computer))
-shouldPlot = 0;
+    shouldPlot = 0;
 else
     shouldPlot = 1;
 end
@@ -34,11 +34,11 @@ for howManyCtr = 1:howMany
         DEPTH_MIN = 0;
         INITIAL_N = NO_GULPERS*1;
         
-        modelingMethods = {@nicheModelClassification, @nicheModelRegression,@nicheModelClassification, @nicheModelRegression,@nicheModelClassificationLogReg}
-        samplingMethods = {@ecohabDoradoSamplingPolicySyntheticRandom, @ecohabDoradoSamplingPolicySyntheticRandom,@ecohabDoradoSamplingPolicySyntheticOfflineBest,@ecohabDoradoSamplingPolicySyntheticOfflineBest,@ecohabDoradoSamplingPolicySyntheticOfflineBest}
+        methodName = {'Rnd_Cls','Best_cls ', 'Best_Log', 'Best_reg ','Best_lin'};
+        modelingMethods = {@nicheModelClassification, @nicheModelClassification,@nicheModelClassificationLogReg,@nicheModelRegression,@nicheModelRegressionLinear}
+        samplingMethods = {@ecohabDoradoSamplingPolicySyntheticRandom,@ecohabDoradoSamplingPolicySyntheticOfflineBest,@ecohabDoradoSamplingPolicySyntheticOfflineBest,@ecohabDoradoSamplingPolicySyntheticOfflineBest,@ecohabDoradoSamplingPolicySyntheticOfflineBest}
         
         samplingMethodsParam = [0, 1, exp(1), 4,9,12]
-        methodName = {'Rnd_Cls','Rnd_Reg','Best_cls ',  'Best_reg ','Best_Log'};
         patterns = {'b', 'c--','r', 'k:', 'm-', 'g-','k--'};
         methodLineWidth = [1,2,2,2,2,2,3]
         
@@ -50,7 +50,7 @@ for howManyCtr = 1:howMany
         S = [];
         Y = [];
         L = [];
-
+        
         Stats = [];
         isHandpicked = [];
         
