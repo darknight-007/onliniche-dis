@@ -10,7 +10,11 @@ end
 
 
 rankVec = [];
-shouldPlot = 1;
+if(strcmp('GLNXA64', computer))
+shouldPlot = 0;
+else
+    shouldPlot = 1;
+end
 NUM_HOTSPOTS = 1;
 NO_GULPERS = 9;
 CLIPSIZE = 0;
