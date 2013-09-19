@@ -7,7 +7,7 @@ trainDataX_ = trainDataX;
 testData_ = testData;
 
 
-scales = [0.1 1];
+scales = [0.1 0.001];
 
 
 
@@ -20,25 +20,17 @@ Xtest = testData_;
 Y = trainDataY;
 
 par = [scales 1];
-% 
-% covfunc = @covSEiso; likfunc = @likGauss; sn = 0.01; hyp.lik = log(sn);
-% hyp2.cov = [1 ; 1];
-% hyp2.lik = log(0.1);
-% hyp2 = minimize(hyp2, @gp, -100, @infExact, [], covfunc, likfunc, Xtrain, Ytrain);
-% exp(hyp2.lik)
-% [mSP s2SP] = gp(hyp2, @infExact, [], covfunc, likfunc, Xtrain, Ytrain,Xtest_sigma_points);
-
 
 covfunc = @covSEard;   hyp.cov = log(par); hyp.lik = log(0.1);
 likfunc = @likGauss;
 
 
 if(shouldTrainOnly ==1)
-    hyp = minimize(hyp, @gp, -40, @infExact, [], covfunc, likfunc, X, Y);
+    hyp = minimize(hyp, @gp, -100, @infExact, [], covfunc, likfunc, X, Y);
     save(filename,'hyp','covfunc','likfunc','X','Y');
 else
     load(filename)
-    [mSP s2SP] = gp(hyp, @infExact, [], covfunc, likfunc, X, Y, Xtest);
+    [mSP, s2SP] = gp(hyp, @infExact, [], covfunc, likfunc, X, Y, Xtest);
     predictedY = mSP;
     d = s2SP;
     

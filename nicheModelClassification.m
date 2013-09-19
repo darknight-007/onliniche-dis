@@ -29,7 +29,7 @@ likfunc = @likErf;
 
 
 if(shouldTrainOnly ==1)
-    hyp = minimize(hyp, @gp, -40, @infEP, meanfunc, covfunc, likfunc, X, Y);
+    hyp = minimize(hyp, @gp, -100, @infEP, meanfunc, covfunc, likfunc, X, Y);
     save(filename,'hyp','meanfunc','covfunc','likfunc','X','Y');
 else
     load(filename)
