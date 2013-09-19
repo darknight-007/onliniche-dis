@@ -232,6 +232,7 @@ for howManyCtr = 1:howMany
                 yvec = zeros(1,NUM_METHODS);
                 optRatio =  zeros(1,NUM_METHODS);
                 ylim([0 length(Y{1})]);
+                xlim([0 length(Y{1})]);
                 
                 subplot(122)
                 hold on
