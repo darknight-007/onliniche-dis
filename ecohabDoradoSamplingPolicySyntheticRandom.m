@@ -6,14 +6,12 @@ function gulpIndices = ecohabDoradoSamplingPolicySyntheticRandom(dummyDivisorUnu
 %auvdataRaw = analyzeAUVctdDataForEnvFeatures('~/Downloads/Dorado389_2013_076_01_076_02.mat');
 
 NO_GULPERS = 9;
-DEPTH_THRESH = 2;
 TOTALTICKS = length(auvdataRaw);
-NO_WINDOWS = 9;
 WINDOWSIZE = floor(TOTALTICKS/9);
 gulpIndices = [];
 for i = 1:NO_GULPERS
     ind = randi(WINDOWSIZE,1);
-    ind = ind + (i-1)*WINDOWSIZE
+    ind = ind + (i-1)*WINDOWSIZE;
     gulpIndices = [gulpIndices; ind 1];
 end
 

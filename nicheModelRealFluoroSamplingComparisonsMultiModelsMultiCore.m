@@ -31,14 +31,14 @@ for howManyCtr = 1:howMany
         Yvecs = [];
         THRESH_FLUORO = 0.001;
         DEPTH_MAX = 200;
-        DEPTH_MIN = 2;
+        DEPTH_MIN = 0;
         INITIAL_N = NO_GULPERS*1;
         
-        modelingMethods = {@nicheModelClassification, @nicheModelRegression,@nicheModelClassification, @nicheModelRegression}
-        samplingMethods = {@ecohabDoradoSamplingPolicySyntheticRandom, @ecohabDoradoSamplingPolicySyntheticRandom,@ecohabDoradoSamplingPolicySyntheticOfflineBest,@ecohabDoradoSamplingPolicySyntheticOfflineBest}
+        modelingMethods = {@nicheModelClassification, @nicheModelRegression,@nicheModelClassification, @nicheModelRegression,@nicheModelClassificationLogReg}
+        samplingMethods = {@ecohabDoradoSamplingPolicySyntheticRandom, @ecohabDoradoSamplingPolicySyntheticRandom,@ecohabDoradoSamplingPolicySyntheticOfflineBest,@ecohabDoradoSamplingPolicySyntheticOfflineBest,@ecohabDoradoSamplingPolicySyntheticOfflineBest}
         
         samplingMethodsParam = [0, 1, exp(1), 4,9,12]
-        methodName = {'Rnd_Cls','Rnd_Reg','Best_cls ',  'Best_reg '};
+        methodName = {'Rnd_Cls','Rnd_Reg','Best_cls ',  'Best_reg ','Best_Log'};
         patterns = {'b', 'c--','r', 'k:', 'm-', 'g-','k--'};
         methodLineWidth = [1,2,2,2,2,2,3]
         
